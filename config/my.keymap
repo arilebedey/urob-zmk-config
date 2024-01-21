@@ -46,7 +46,6 @@
 /* Custom behaviors */
 
 // reuse basic mod-morph scheme
-// ######################################################################################################################
 #define SIMPLE_MORPH(NAME, MOD, BINDING1, BINDING2) \
     ZMK_BEHAVIOR(NAME, mod_morph, \
         mods = <(MOD_L ## MOD|MOD_R ## MOD)>; \
@@ -94,22 +93,6 @@ ZMK_BEHAVIOR(copy_cut, tap_dance,
     tapping-term-ms = <200>;
     bindings = <&kp LC(INS)>, <&kp LC(X)>;
 )
-
-// Windows sleep key
-ZMK_BEHAVIOR(win_sleep, macro,
-    wait-ms = <500>;
-    tap-ms = <50>;
-    bindings = <&kp LG(X) &kp U &kp S>;
-)
-
-// misc aliases
-#define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word and smart-mouse
-#define DSK_PREV    &hmr RSHFT LG(LC(LEFT))  // previous desktop
-#define DSK_NEXT    &hmr LALT LG(LC(RIGHT))  // next     desktop
-#define PIN_WIN     &kp LG(LC(LS(Q)))        // pin window across desktops
-#define PIN_APP     &kp LG(LC(LS(A)))        // pin application across desktops
-#define DSK_MGR     &kp LA(GRAVE)            // desktop manager
-#define VOL_DOWN    &hmr LCTRL C_VOL_DN
 
 /* Keymap */
 

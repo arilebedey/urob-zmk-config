@@ -23,5 +23,5 @@
 #define CONFIG_WIRELESS 1
 
 /* source the main keymap */
-#include "base.keymap"
+#include "my.keymap"
 
