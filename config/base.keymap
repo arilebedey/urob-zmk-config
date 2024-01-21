@@ -109,6 +109,7 @@ ZMK_BEHAVIOR(smart_shft, mod_morph,
 };
 
 // tap: num-word | double-tap: sticky num-layer | hold: num-layer
+// ###############################################################################################################
 #define SMART_NUM &smart_num NUM 0
 ZMK_BEHAVIOR(smart_num, hold_tap,
     flavor = "balanced";
@@ -155,6 +156,7 @@ ZMK_BEHAVIOR(uc_shift, macro,
 )
 
 // reuse basic mod-morph scheme
+// ######################################################################################################################
 #define SIMPLE_MORPH(NAME, MOD, BINDING1, BINDING2) \
     ZMK_BEHAVIOR(NAME, mod_morph, \
         mods = <(MOD_L ## MOD|MOD_R ## MOD)>; \
@@ -222,6 +224,8 @@ ZMK_BEHAVIOR(win_sleep, macro,
 /* Keymap */
 
 ZMK_CONDITIONAL_LAYER(FN NUM, SYS)  // FN + NUM --> SYS
+                                    // #################################################################################
+                                    // This feature generalizes what's commonly known as tri-layer support, allowing activation of two layers (usually called "lower" and "raise") to trigger a third (usually called "adjust").
 
 ZMK_LAYER(base,
 //╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮
