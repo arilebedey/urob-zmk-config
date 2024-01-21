@@ -8,7 +8,7 @@
 #endif
 
 #include "../zmk-nodefree-config/helper.h"
-#include "../zmk-nodefree-config/international_chars/russian.dtsi"
+// #include "../zmk-nodefree-config/international_chars/russian.dtsi"
 
 #define RSTHD 0
 // #define RU 1
