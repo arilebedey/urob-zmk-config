@@ -15,7 +15,7 @@
 // #define MAGIC 2
 // #define SYS 3
 
-#include "combos.dtsi"  // requires layer aliases
+// #include "combos.dtsi"  // requires layer aliases
 #include "mouse.dtsi"
 #include "extra_keys.h"
 
