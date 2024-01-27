@@ -1,3 +1,0 @@
-[submodule "zmk-nodefree-config"]
-	path = zmk-nodefree-config
-	url = https://github.com/arilebedey/zmk-nodefree-config
