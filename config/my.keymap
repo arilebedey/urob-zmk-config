@@ -7,7 +7,7 @@
 // #else
 //     #define _BT_SEL_KEYS_ &trans &trans &trans &trans &trans
 // #endif
-
+#define HOST_OS 1 // Linux
 #include "../zmk-nodefree-config/helper.h"
 #include "../zmk-nodefree-config/international_chars/russian.dtsi"
 #include "../zmk-nodefree-config/international_chars/greek.dtsi"
