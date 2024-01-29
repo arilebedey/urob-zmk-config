@@ -25,5 +25,6 @@
 /* source the main keymap */
 // #include "base.keymap"
 //
+#define HOST_OS 1 // Linux
 #include "my.keymap"
 
