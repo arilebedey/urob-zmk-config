@@ -80,11 +80,11 @@ done
 [[ -z $ZEPHYR_VERSION ]] && ZEPHYR_VERSION="3.2"
 [[ -z $RUNWITH_DOCKER ]] && RUNWITH_DOCKER="true"
 
-[[ -z $OUTPUT_DIR ]] && OUTPUT_DIR="$WINHOME/Downloads"
+[[ -z $OUTPUT_DIR ]] && OUTPUT_DIR="$HOME/Code/zmk-linux-build-script/"
 [[ -z $LOG_DIR ]] && LOG_DIR="/tmp"
 
-[[ -z $HOST_ZMK_DIR ]] && HOST_ZMK_DIR="$HOME/zmk"
-[[ -z $HOST_CONFIG_DIR ]] && HOST_CONFIG_DIR="$HOME/zmk-config"
+[[ -z $HOST_ZMK_DIR ]] && HOST_ZMK_DIR="$HOME/Code/zmk-linux-build-script/zmk"
+[[ -z $HOST_CONFIG_DIR ]] && HOST_CONFIG_DIR="$HOME/Code/zmk-linux-build-script/urob-zmk-config"
 
 [[ -z $DOCKER_ZMK_DIR ]] && DOCKER_ZMK_DIR="/workspace/zmk"
 [[ -z $DOCKER_CONFIG_DIR ]] && DOCKER_CONFIG_DIR="/workspace/zmk-config"
@@ -156,6 +156,7 @@ then
         && west update \
         && cp app/west.yml $OLD_WEST"
 
+    echo "LOG: DOCKER_CMD"
     # Build parameters
     DOCKER_PREFIX="$DOCKER_CMD -w $DOCKER_ZMK_DIR/app $DOCKER_IMG"
     SUFFIX="${ZEPHYR_VERSION}_docker"
