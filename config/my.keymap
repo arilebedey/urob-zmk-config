@@ -166,10 +166,76 @@ ZMK_BEHAVIOR(spot_prev, macro,
     bindings = <&kp LG(I)>;
 )
 
-ZMK_BEHAVIOR(clipboard, macro,
+ZMK_BEHAVIOR(clip, macro,
     wait-ms = <10>;
     tap-ms = <5>;
     bindings = <&kp LG(Z)>;
+)
+
+ZMK_BEHAVIOR(p_tab, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LC(LS(TAB))>;
+)
+
+ZMK_BEHAVIOR(n_tab, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LC(TAB)>;
+)
+
+ZMK_BEHAVIOR(c_tab, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LC(W) &kp LC(LS(TAB))>;
+)
+
+ZMK_BEHAVIOR(p_page, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LA(LEFT)>;
+)
+
+ZMK_BEHAVIOR(n_page, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LA(RIGHT)>;
+)
+
+ZMK_BEHAVIOR(vol_d, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp C_VOL_DN>;
+)
+
+ZMK_BEHAVIOR(vol_u, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp C_VOL_UP>;
+)
+
+ZMK_BEHAVIOR(hbrn, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LG(LC(H))>;
+)
+
+ZMK_BEHAVIOR(mute, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp C_MUTE>;
+)
+
+ZMK_BEHAVIOR(p_term, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LC(LS(LEFT))>;
+)
+
+ZMK_BEHAVIOR(n_term, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LC(LS(RIGHT))>;
 )
 
 /* Keymap */
@@ -178,7 +244,7 @@ ZMK_BEHAVIOR(clipboard, macro,
 
 ZMK_LAYER(rsthd,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                                                  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-   &kp EXCL      &kp STAR      &kp QMARK     &kp BSLH      &kp HASH                                                                                                                         &kp LPAR      &kp RPAR      &kp HOME      &kp LBKT      &kp RBKT
+   &kp EXCL      &kp STAR      &kp QMARK     &kp BSLH      &kp HASH                                                                                                                         &kp LPAR      &kp RPAR      &kp HOME      &p_tab        &n_tab
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╮                                                                                      ╭─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &kp GRAVE     &kp N7        &kp N8        &kp N9        &kp N0        &kp N5                                                                                               &kp N6        &kp N1        &kp N2        &kp N3        &kp N4        &kp AMPS
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -242,16 +308,16 @@ ZMK_LAYER(symbol,
 
 ZMK_LAYER(hyper,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                                                  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-   XXX           XXX           XXX           XXX           XXX                                                                                                                              XXX           XXX           XXX           XXX           XXX  
+   XXX           XXX           XXX           XXX           XXX                                                                                                                              &hbrn         XXX           &c_tab        &p_page       &n_page  
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╮                                                                                      ╭─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   XXX           XXX           XXX           XXX           XXX           XXX                                                                                                  XXX           XXX           XXX           XXX           XXX           XXX  
+   XXX           XXX           XXX           XXX           XXX           XXX                                                                                                  &mute         XXX           XXX           XXX           XXX           XXX  
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   XXX           XXX           XXX           XXX           XXX           XXX                                                                                                  XXX           &p_win        &p_desk       XXX           XXX           XXX                         
+   XXX           XXX           XXX           XXX           XXX           XXX                                                                                                  &vol_u        &p_win        &p_desk       XXX           XXX           XXX                         
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   XXX           XXX           XXX           XXX           XXX           XXX                                                                                                  XXX           &p_win        &new_win      &spot_prev    &spot_n       &cl_win
+   XXX           XXX           XXX           XXX           XXX           XXX                                                                                                  &vol_d        &p_win        &new_win      &spot_prev    &spot_n       &cl_win
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤╭─────────────┬─────────────┬─────────────╮╭─────────────┬─────────────┬─────────────╮├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   XXX           XXX           XXX           XXX           XXX           XXX            &shift_desk   XXX           XXX            XXX           XXX           XXX            XXX           &n_win        &n_desk       &yt_p         &spot_p       XXX           
+   XXX           XXX           XXX           XXX           &clip         XXX            &shift_desk   XXX           XXX            XXX           XXX           XXX            XXX           &n_win        &n_desk       &yt_p         &spot_p       XXX           
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯├─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┤╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   XXX           XXX           XXX           XXX           XXX                          XXX           XXX           XXX            XXX           XXX           XXX                          &p_desk       &n_desk       XXX           XXX           XXX            
+   XXX           XXX           XXX           XXX           XXX                          XXX           XXX           XXX            XXX           XXX           XXX                          &p_term       &n_term       &clip         XXX           XXX            
 //╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯              ╰─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────╯              ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
 )
