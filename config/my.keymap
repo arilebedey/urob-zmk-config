@@ -238,6 +238,42 @@ ZMK_BEHAVIOR(n_term, macro,
     bindings = <&kp LC(LS(RIGHT))>;
 )
 
+ZMK_BEHAVIOR(paste, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LC(V)>;
+)
+
+ZMK_BEHAVIOR(s_ggl, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp O>;
+)
+
+ZMK_BEHAVIOR(s_yt, macro,
+    wait-ms = <200>;
+    tap-ms = <5>;
+    bindings = <&kp O &kp Y &kp SPACE>;
+)
+
+ZMK_BEHAVIOR(dmenu, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LG(Y)>;
+)
+
+ZMK_BEHAVIOR(cycle_tabs, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp RA(A)>;
+)
+
+ZMK_BEHAVIOR(ctrl_a, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LC(A)>;
+)
+
 /* Keymap */
 
 // ZMK_CONDITIONAL_LAYER(FN NUM, SYS)  // FN + NUM --> SYS
@@ -310,14 +346,14 @@ ZMK_LAYER(hyper,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                                                  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
    XXX           XXX           XXX           XXX           XXX                                                                                                                              &hbrn         XXX           &c_tab        &p_page       &n_page  
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╮                                                                                      ╭─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   XXX           XXX           XXX           XXX           XXX           XXX                                                                                                  &mute         XXX           XXX           XXX           XXX           XXX  
+   XXX           XXX           XXX           XXX           XXX           XXX                                                                                                  &mute         &ctrl_a       XXX           XXX           XXX           XXX  
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   XXX           XXX           XXX           XXX           XXX           XXX                                                                                                  &vol_u        &p_win        &p_desk       XXX           XXX           XXX                         
+   XXX           XXX           XXX           &dmenu        XXX           XXX                                                                                                  &vol_u        &copy_cut     &p_desk       &cycle_tabs   XXX           XXX                         
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   XXX           XXX           XXX           XXX           XXX           XXX                                                                                                  &vol_d        &p_win        &new_win      &spot_prev    &spot_n       &cl_win
+   XXX           XXX           &s_yt         &s_ggl        XXX           XXX                                                                                                  &vol_d        &p_win        &new_win      &spot_prev    &spot_n       &cl_win
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤╭─────────────┬─────────────┬─────────────╮╭─────────────┬─────────────┬─────────────╮├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   XXX           XXX           XXX           XXX           &clip         XXX            &shift_desk   XXX           XXX            XXX           XXX           XXX            XXX           &n_win        &n_desk       &yt_p         &spot_p       XXX           
+   XXX           XXX           XXX           XXX           &clip         XXX            &shift_desk   XXX           XXX            XXX           XXX           XXX            &paste        &n_win        &n_desk       &yt_p         &spot_p       XXX           
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯├─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┤╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   XXX           XXX           XXX           XXX           XXX                          XXX           XXX           XXX            XXX           XXX           XXX                          &p_term       &n_term       &clip         XXX           XXX            
+   XXX           XXX           XXX           XXX           XXX                          XXX           XXX           XXX            XXX           XXX           XXX                          &p_term       &n_term       &cycle_tabs   XXX           XXX            
 //╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯              ╰─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────╯              ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
 )
