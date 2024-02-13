@@ -193,13 +193,13 @@ ZMK_BEHAVIOR(c_tab, macro,
 ZMK_BEHAVIOR(p_page, macro,
     wait-ms = <10>;
     tap-ms = <5>;
-    bindings = <&kp LA(LEFT)>;
+    bindings = <&kp RA(LEFT)>;
 )
 
 ZMK_BEHAVIOR(n_page, macro,
     wait-ms = <10>;
     tap-ms = <5>;
-    bindings = <&kp LA(RIGHT)>;
+    bindings = <&kp RA(RIGHT)>;
 )
 
 ZMK_BEHAVIOR(vol_d, macro,
@@ -260,7 +260,7 @@ ZMK_LAYER(rsthd,
 
 ZMK_LAYER(ru,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                                                  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-   &kp EXCL      &kp STAR      &kp QMARK     &kp BSLH      &kp HASH                                                                                                                         &kp LPAR      &kp RPAR      &kp HOME      &kp LBKT      &kp RBKT
+   &kp EXCL      &kp STAR      &kp QMARK     &kp BSLH      &kp HASH                                                                                                                         &kp LPAR      &kp RPAR      &c_tab        &p_tab        &n_tab
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╮                                                                                      ╭─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &kp GRAVE     &kp N7        &kp N8        &kp N9        &kp N0        &kp N5                                                                                               &kp N6        &kp N1        &kp N2        &kp N3        &kp N4        &ru_shcha
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
