@@ -156,7 +156,7 @@ then
         && west update \
         && cp app/west.yml $OLD_WEST"
 
-    echo "LOG: DOCKER_CMD"
+    # echo "LOG: DOCKER_CMD"
     # Build parameters
     DOCKER_PREFIX="$DOCKER_CMD -w $DOCKER_ZMK_DIR/app $DOCKER_IMG"
     SUFFIX="${ZEPHYR_VERSION}_docker"
