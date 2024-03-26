@@ -148,6 +148,12 @@ ZMK_BEHAVIOR(yt_p, macro,
     bindings = <&kp LG(P)>;
 )
 
+ZMK_BEHAVIOR(yt_pause, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LG(LA(P))>;
+)
+
 ZMK_BEHAVIOR(spot_p, macro,
     wait-ms = <10>;
     tap-ms = <5>;
@@ -282,15 +288,15 @@ ZMK_BEHAVIOR(o_tab, macro,
 
 // paste yt
 ZMK_BEHAVIOR(p_yt, macro,
-    wait-ms = <10>;
+    wait-ms = <80>;
     tap-ms = <5>;
-    bindings = <&kp O &kp Y &kp SPACE &kp LC(V) &kp ENTER>;
+    bindings = <&kp LC(C) &kp O &kp Y &kp SPACE &kp LC(V) &kp ENTER>;
 )
 
 ZMK_BEHAVIOR(p_ggl, macro,
     wait-ms = <10>;
     tap-ms = <5>;
-    bindings = <&kp LC(T) &kp LC(V) &kp ENTER>;
+    bindings = <&kp LC(C) &kp LC(T) &kp LC(V) &kp ENTER>;
 )
 
 // middle click 
@@ -453,7 +459,7 @@ ZMK_LAYER(hyper,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤╭─────────────┬─────────────┬─────────────╮╭─────────────┬─────────────┬─────────────╮├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    XXX           XXX           &p_yt         &p_ggl        &clip         &c_tab         &shift_desk   XXX           XXX            XXX           XXX           XXX            &paste        &n_win        &n_desk       &yt_p         &spot_p       XXX           
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯├─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┤╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   XXX           XXX           &m_clk        &m_clk_s      XXX                          &kp LSHIFT    XXX           XXX            XXX           XXX           XXX                          &p_term       &n_term       &cycle_tabs   XXX           XXX            
+   XXX           XXX           &m_clk        &m_clk_s      XXX                          &kp LSHIFT    XXX           XXX            XXX           XXX           XXX                          &p_term       &n_term       &yt_pause     XXX           XXX            
 //╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯              ╰─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────╯              ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
 )
 
