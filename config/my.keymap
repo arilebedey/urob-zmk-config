@@ -36,7 +36,8 @@
 };
 
 &sl {  // sticky-layer config
-    ignore-modifiers;          // allow chording sticky mods & layers
+    ignore-modifiers;          // allow chording sticky mods & layers // only line from urob's config
+    release-after-ms = <900>;  // release after 0.6s
 };
 
 &lt {  // layer-tap config
@@ -426,6 +427,29 @@ ZMK_BEHAVIOR(sup_f, macro,
     bindings = <&kp LG(F)>;
 )
 
+ZMK_BEHAVIOR(zoom_out, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LC(MINUS)>;
+)
+
+ZMK_BEHAVIOR(zoom_in, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LC(EQUAL)>;
+)
+
+ZMK_BEHAVIOR(unfullscr, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LS(LG(F))>;
+)
+
+ZMK_BEHAVIOR(full_magic, macro,
+    wait-ms = <85>;
+    tap-ms = <5>;
+    bindings = <&kp LS(W) &kp LG(LS(E)) &kp LG(E) &kp F &kp LC(X) &kp LG(E)>;
+)
 
 /* Keymap */
 
@@ -441,7 +465,7 @@ ZMK_LAYER(rsthd,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &kp LSHIFT    &kp R         &kp S         &kp T         &kp H         &kp D                                                                                                &kp M         &kp N         &kp A         &kp I         &kp O         &kp SQT
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤╭─────────────┬─────────────┬─────────────╮╭─────────────┬─────────────┬─────────────╮├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   &yt_p         &kp FSLH      &kp V         &kp G         &kp P         &kp B          &mo HYPER     &kp RALT      &kp LGUI       &mo SYMBOL    &sk LSHFT     &mo HYPER      &kp X         &kp W         &kp DOT       &kp MINUS     &kp SEMI      &kp PG_UP
+   &yt_p         &kp FSLH      &kp V         &kp G         &kp P         &kp B          &sl HYPER     &sk RALT      &sk LGUI       &sl SYMBOL    &sk LSHFT     &sl HYPER      &kp X         &kp W         &kp DOT       &kp MINUS     &kp SEMI      &kp PG_UP
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯├─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┤╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &to 1         &kp DOWN      &kp UP        &kp ESC       &kp TAB                      &kp E         &kp BSPC      &sk LCTRL      &sk LCTRL     &kp RET       &kp SPACE                    &yt_p         &lay_magic    &kp LEFT      &kp RIGHT     &kp PG_DN
 //╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯              ╰─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────╯              ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
@@ -487,11 +511,11 @@ ZMK_LAYER(symbol,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &kp HASH      &kp GRAVE     &kp SQT       &kp DQT       &kp MINUS     &kp QMARK                                                                                            &kp SEMI      &kp LCTRL     &kp RALT      &kp LSHFT     &kp LGUI      XXX  
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   &kp EXCL      &kp CARET     &kp EQUAL     &kp UNDER     &kp DLLR      &kp STAR                                                                                             &kp DOT       &kp BSPC      &kp TAB       &kp SPACE     &kp RET       XXX  
+   &kp TILDE     &kp CARET     &kp EQUAL     &kp UNDER     &kp DLLR      &kp STAR                                                                                             &kp DOT       &kp BSPC      &kp TAB       &kp SPACE     &kp RET       XXX  
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤╭─────────────┬─────────────┬─────────────╮╭─────────────┬─────────────┬─────────────╮├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   &kp TILDE     &kp LBRC      &kp LPAR      &kp RPAR      &kp RBRC      &kp FSLH       &kp BSLH      &kp BSPC      &kp STAR       XXX           XXX           XXX            &kp FSLH      &kp DEL       &kp LS(TAB)   XXX           XXX           XXX  
+   &kp EXCL      &kp LBRC      &kp LPAR      &kp RPAR      &kp RBRC      &kp FSLH       &kp BSLH      &kp COLON      &kp STAR       XXX           XXX           XXX            &kp FSLH      &kp DEL       &kp LS(TAB)   XXX           XXX           XXX  
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯├─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┤╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   &kp AT        &kp AMPS      &kp LBKT      &kp RBKT      &kp PLUS                     &kp PRCNT     &kp COLON     &kp SEMI       XXX           XXX           &tog SYMBOL                  &ctrl_le      &ctrl_ri      &kp LEFT      &kp RIGHT     XXX  
+   &kp AT        &kp AMPS      &kp LBKT      &kp RBKT      &kp PLUS                     &kp PRCNT     &kp BSPC      &kp SEMI       XXX           XXX           &tog SYMBOL                  &ctrl_le      &ctrl_ri      &kp LEFT      &kp RIGHT     XXX  
 //╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯              ╰─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────╯              ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
 )
 
@@ -501,11 +525,11 @@ ZMK_LAYER(hyper,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╮                                                                                      ╭─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    XXX           &p7           &p8           &p9           &p0           &p5                                                                                                  &p6           &p1           &p2           &p3           &p4           XXX  
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   XXX           XXX           XXX           &dmenu        &sup_f        XXX                                                                                                  &vol_u        &copy_cut     &p_desk       &cycle_tabs   &spot_prev    XXX                         
+   XXX           &unfullscr    XXX           &dmenu        &sup_f        &full_magic                                                                                          &vol_u        &copy_cut     &p_desk       &cycle_tabs   &spot_prev    XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   XXX           XXX           &s_yt         &s_ggl        XXX           &o_tab                                                                                               &vol_d        &p_win        &new_win      &shift_desk   &spot_n       &cl_win
+   &zoom_in      XXX           &s_yt         &s_ggl        XXX           &o_tab                                                                                               &vol_d        &p_win        &new_win      &shift_desk   &spot_n       &cl_win
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤╭─────────────┬─────────────┬─────────────╮╭─────────────┬─────────────┬─────────────╮├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   XXX           XXX           &p_yt         &p_ggl        &clip         &c_tab         &lay_magic    &set_lay_ma   XXX            XXX           XXX           XXX            &paste        &n_win        &n_desk       &yt_p         &lay_magic    XXX           
+   &zoom_out     XXX           &p_yt         &p_ggl        &clip         &c_tab         &lay_magic    &set_lay_ma   XXX            XXX           XXX           XXX            &paste        &n_win        &n_desk       &yt_p         &lay_magic    &full_magic           
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯├─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┤╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    XXX           XXX           &m_clk        &m_clk_s      XXX                          &yt_p         &media_back   &media_frw     XXX           XXX           XXX                          &p_term       &n_term       &spot_p       &shift_desk   XXX            
 //╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯              ╰─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────╯              ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
