@@ -10,7 +10,6 @@
 #define HOST_OS 1 // Linux
 #include "../zmk-nodefree-config/helper.h"
 #include "../zmk-nodefree-config/international_chars/russian.dtsi"
-// #include "../zmk-nodefree-config/international_chars/greek.dtsi"
 
 #define RSTHD 0
 #define RU 1
@@ -31,7 +30,7 @@
 #define QUICK_TAP_MS 175
 
 &sk {  // sticky-key config
-    release-after-ms = <900>;  // release after 0.6s
+    release-after-ms = <900>;  // release after 0.9s
     quick-release;             // no double capitalization when rolling keys
 };
 
@@ -245,16 +244,28 @@ ZMK_BEHAVIOR(media_frw, macro,
     bindings = <&kp LG(LS(LA(W)))>;
 )
 
-ZMK_BEHAVIOR(p_term, macro,
+ZMK_BEHAVIOR(p_tmux, macro,
     wait-ms = <10>;
     tap-ms = <5>;
-    bindings = <&kp LC(LS(LEFT))>;
+    bindings = <&kp LC(A) &kp P>;
 )
 
-ZMK_BEHAVIOR(n_term, macro,
-    wait-ms = <10>;
+ZMK_BEHAVIOR(tmux_cl, macro,
+    wait-ms = <30>;
     tap-ms = <5>;
-    bindings = <&kp LC(LS(RIGHT))>;
+    bindings = <&kp LC(A) &kp F>;
+)
+
+ZMK_BEHAVIOR(tmux_opn, macro,
+    wait-ms = <30>;
+    tap-ms = <5>;
+    bindings = <&kp LC(A) &kp G>;
+)
+
+ZMK_BEHAVIOR(n_tmux, macro,
+    wait-ms = <30>;
+    tap-ms = <5>;
+    bindings = <&kp LC(A) &kp N>;
 )
 
 ZMK_BEHAVIOR(paste, macro,
@@ -282,9 +293,9 @@ ZMK_BEHAVIOR(s_ggl, macro,
 )
 
 ZMK_BEHAVIOR(s_yt, macro,
-    wait-ms = <80>;
+    wait-ms = <10>;
     tap-ms = <5>;
-    bindings = <&kp O &kp Y &kp SPACE>;
+    bindings = <&kp LS(LG(LA(F2)))>;
 )
 
 ZMK_BEHAVIOR(dmenu, macro,
@@ -313,9 +324,9 @@ ZMK_BEHAVIOR(o_tab, macro,
 
 // paste yt
 ZMK_BEHAVIOR(p_yt, macro,
-    wait-ms = <80>;
+    wait-ms = <10>;
     tap-ms = <5>;
-    bindings = <&kp LC(C) &kp ESC &kp O &kp Y &kp SPACE &kp LC(V) &kp ENTER>;
+    bindings = <&kp LS(LG(LA(F1)))>;
 )
 
 ZMK_BEHAVIOR(p_ggl, macro,
@@ -446,9 +457,21 @@ ZMK_BEHAVIOR(unfullscr, macro,
 )
 
 ZMK_BEHAVIOR(full_magic, macro,
-    wait-ms = <85>;
+    wait-ms = <135>;
     tap-ms = <5>;
     bindings = <&kp LS(W) &kp LG(LS(E)) &kp LG(E) &kp F &kp LC(X) &kp LG(E)>;
+)
+
+ZMK_BEHAVIOR(scs, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LG(LA(S))>;
+)
+
+ZMK_BEHAVIOR(tmux_p, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LC(A)>;
 )
 
 /* Keymap */
@@ -529,9 +552,9 @@ ZMK_LAYER(hyper,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &zoom_in      XXX           &s_yt         &s_ggl        XXX           &o_tab                                                                                               &vol_d        &p_win        &new_win      &shift_desk   &spot_n       &cl_win
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤╭─────────────┬─────────────┬─────────────╮╭─────────────┬─────────────┬─────────────╮├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   &zoom_out     XXX           &p_yt         &p_ggl        &clip         &c_tab         &lay_magic    &set_lay_ma   XXX            XXX           XXX           XXX            &paste        &n_win        &n_desk       &yt_p         &lay_magic    &full_magic           
+   &zoom_out     XXX           &p_yt         &p_ggl        &clip         &c_tab         &lay_magic    &set_lay_ma   XXX            &scs          &tmux_cl      &tmux_p        &paste        &n_win        &n_desk       &yt_p         &lay_magic    &full_magic           
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯├─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┤╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   XXX           XXX           &m_clk        &m_clk_s      XXX                          &yt_p         &media_back   &media_frw     XXX           XXX           XXX                          &p_term       &n_term       &spot_p       &shift_desk   XXX            
+   XXX           &paste        &m_clk        &m_clk_s      &copy_cut                    &yt_p         &media_back   &media_frw     XXX           &tmux_opn     XXX                          &p_tmux       &n_tmux       &spot_p       &shift_desk   XXX            
 //╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯              ╰─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────╯              ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
 )
 
@@ -550,4 +573,3 @@ ZMK_LAYER(hyperplus,
    XXX           XXX           XXX           XXX           XXX                          XXX           XXX           XXX            XXX           XXX           XXX                          XXX           XXX           XXX           XXX           XXX
 //╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯              ╰─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────╯              ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
 )
-
