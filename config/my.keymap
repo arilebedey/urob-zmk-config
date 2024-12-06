@@ -16,7 +16,6 @@
 #define SYS 2
 #define SYMBOL 3
 #define HYPER 4
-// #define SYS 3
 
 // #include "combos.dtsi"  // requires layer aliases
 # include "mouse.dtsi"
@@ -100,7 +99,7 @@ ZMK_BEHAVIOR(copy_cut, tap_dance,
 
 /* HYPER Macros */
 
-ZMK_BEHAVIOR(new_win, macro,
+ZMK_BEHAVIOR(h_a, macro,
     wait-ms = <10>;
     tap-ms = <5>;
     bindings = <&kp LG(A)>;
@@ -160,16 +159,76 @@ ZMK_BEHAVIOR(spot_p, macro,
     bindings = <&kp LG(LS(P))>;
 )
 
-ZMK_BEHAVIOR(spot_n, macro,
+ZMK_BEHAVIOR(h_n, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LG(N)>;
+)
+
+ZMK_BEHAVIOR(h_a, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LG(A)>;
+)
+
+ZMK_BEHAVIOR(h_i, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LG(I)>;
+)
+
+ZMK_BEHAVIOR(h_o, macro,
     wait-ms = <10>;
     tap-ms = <5>;
     bindings = <&kp LG(O)>;
 )
 
-ZMK_BEHAVIOR(spot_prev, macro,
+ZMK_BEHAVIOR(h_apo, macro,
     wait-ms = <10>;
     tap-ms = <5>;
-    bindings = <&kp LG(I)>;
+    bindings = <&kp LG(LA(M))>;
+)
+
+ZMK_BEHAVIOR(h_dash, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LG(LA(N))>;
+)
+
+ZMK_BEHAVIOR(h_peri, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LG(LA(PERIOD))>;
+)
+
+ZMK_BEHAVIOR(h_semi, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LG(LA(A))>;
+)
+
+ZMK_BEHAVIOR(h_pgup, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LG(LA(I))>;
+)
+
+ZMK_BEHAVIOR(h_left, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LG(LA(O))>;
+)
+
+ZMK_BEHAVIOR(h_right, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LG(LA(L))>;
+)
+
+ZMK_BEHAVIOR(mouse_place, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LG(LA(U))>;
 )
 
 ZMK_BEHAVIOR(clip, macro,
@@ -193,7 +252,7 @@ ZMK_BEHAVIOR(n_tab, macro,
 ZMK_BEHAVIOR(c_tab, macro,
     wait-ms = <10>;
     tap-ms = <5>;
-    bindings = <&kp LC(W) &kp LC(LS(TAB))>;
+    bindings = <&kp LC(W)>;
 )
 
 ZMK_BEHAVIOR(p_page, macro,
@@ -248,12 +307,6 @@ ZMK_BEHAVIOR(p_tmux, macro,
     wait-ms = <10>;
     tap-ms = <5>;
     bindings = <&kp LC(A) &kp P>;
-)
-
-ZMK_BEHAVIOR(tmux_cl, macro,
-    wait-ms = <30>;
-    tap-ms = <5>;
-    bindings = <&kp LC(A) &kp F>;
 )
 
 ZMK_BEHAVIOR(tmux_opn, macro,
@@ -324,28 +377,15 @@ ZMK_BEHAVIOR(o_tab, macro,
 
 // paste yt
 ZMK_BEHAVIOR(p_yt, macro,
-    wait-ms = <10>;
+    wait-ms = <25>;
     tap-ms = <5>;
-    bindings = <&kp LS(LG(LA(F1)))>;
+    bindings = <&kp LC(C) &kp LS(LG(LA(F1)))>;
 )
 
 ZMK_BEHAVIOR(p_ggl, macro,
     wait-ms = <10>;
     tap-ms = <5>;
     bindings = <&kp LC(C) &kp LC(T) &kp LC(V) &kp ENTER>;
-)
-
-// middle click 
-ZMK_BEHAVIOR(m_clk, macro,
-    wait-ms = <10>;
-    tap-ms = <5>;
-    bindings = <&kp LG(LA(N))>;
-)
-
-ZMK_BEHAVIOR(m_clk_s, macro,
-    wait-ms = <10>;
-    tap-ms = <5>;
-    bindings = <&kp LG(LA(T))>;
 )
 
 ZMK_BEHAVIOR(p0, macro,
@@ -423,13 +463,13 @@ ZMK_BEHAVIOR(win_float, macro,
 ZMK_BEHAVIOR(set_lay_ma, macro,
     wait-ms = <10>;
     tap-ms = <5>;
-    bindings = <&kp LG(LS(E))>;
+    bindings = <&kp LG(LS(PERIOD))>;
 )
 
 ZMK_BEHAVIOR(lay_magic, macro,
     wait-ms = <10>;
     tap-ms = <5>;
-    bindings = <&kp LG(E)>;
+    bindings = <&kp LG(PERIOD)>;
 )
 
 ZMK_BEHAVIOR(sup_f, macro,
@@ -456,12 +496,6 @@ ZMK_BEHAVIOR(unfullscr, macro,
     bindings = <&kp LS(LG(F))>;
 )
 
-ZMK_BEHAVIOR(full_magic, macro,
-    wait-ms = <135>;
-    tap-ms = <5>;
-    bindings = <&kp LS(W) &kp LG(LS(E)) &kp LG(E) &kp F &kp LC(X) &kp LG(E)>;
-)
-
 ZMK_BEHAVIOR(scs, macro,
     wait-ms = <10>;
     tap-ms = <5>;
@@ -474,6 +508,42 @@ ZMK_BEHAVIOR(tmux_p, macro,
     bindings = <&kp LC(A)>;
 )
 
+ZMK_BEHAVIOR(tmux_choose, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LC(A) &kp S>;
+)
+
+ZMK_BEHAVIOR(tmux_switch, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LC(A) &kp L>;
+)
+
+ZMK_BEHAVIOR(br_d, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LG(F1)>;
+)
+
+ZMK_BEHAVIOR(br_u, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LG(F2)>;
+)
+
+ZMK_BEHAVIOR(mus_p, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LG(LBKT)>;
+)
+
+ZMK_BEHAVIOR(mus_n, macro,
+    wait-ms = <10>;
+    tap-ms = <5>;
+    bindings = <&kp LG(RBKT)>;
+)
+
 /* Keymap */
 
 // ZMK_CONDITIONAL_LAYER(FN NUM, SYS)  // FN + NUM --> SYS
@@ -482,9 +552,9 @@ ZMK_LAYER(rsthd,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                                                  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
    &kp EXCL      &kp STAR      &yt_p         &kp BSLH      &kp HASH                                                                                                                         &n_win        &p_win        &c_tab        &p_tab        &n_tab
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╮                                                                                      ╭─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   &kp GRAVE     &kp N7        &kp N8        &kp N9        &kp N0        &kp N5                                                                                               &kp N6        &kp N1        &kp N2        &kp N3        &kp N4        &kp AMPS
+   &kp GRAVE     &kp N7        &kp N8        &kp N9        &kp N0        &kp N5                                                                                               &kp N6        &kp N1        &kp N2        &kp N3        &kp N4        XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   &kp TAB       &kp J         &kp C         &kp Y         &kp F         &kp K                                                                                                &kp Z         &kp L         &kp COMMA     &kp U         &kp Q         &kp EQUAL
+   &kp TAB       &kp J         &kp C         &kp Y         &kp F         &kp K                                                                                                &kp Z         &kp L         &kp COMMA     &kp U         &kp Q         &tmux_switch
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &kp LSHIFT    &kp R         &kp S         &kp T         &kp H         &kp D                                                                                                &kp M         &kp N         &kp A         &kp I         &kp O         &kp SQT
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤╭─────────────┬─────────────┬─────────────╮╭─────────────┬─────────────┬─────────────╮├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -532,9 +602,9 @@ ZMK_LAYER(symbol,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╮                                                                                      ╭─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    XXX           &kp GRAVE     &kp PIPE      &kp SEMI      &kp SEMI      &kp COMMA                                                                                            XXX           XXX           XXX           XXX           XXX           XXX  
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   &kp HASH      &kp GRAVE     &kp SQT       &kp DQT       &kp MINUS     &kp QMARK                                                                                            &kp SEMI      &kp LCTRL     &kp RALT      &kp LSHFT     &kp LGUI      XXX  
+   &kp HASH      &kp CARET     &kp SQT       &kp DQT       &kp MINUS     &kp QMARK                                                                                            &kp SEMI      &kp LCTRL     &kp RALT      &kp LSHFT     &kp LGUI      XXX  
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   &kp TILDE     &kp CARET     &kp EQUAL     &kp UNDER     &kp DLLR      &kp STAR                                                                                             &kp DOT       &kp BSPC      &kp TAB       &kp SPACE     &kp RET       XXX  
+   &kp TILDE     &kp GRAVE     &kp EQUAL     &kp UNDER     &kp DLLR      &kp STAR                                                                                             &kp DOT       &kp BSPC      &kp TAB       &kp SPACE     &kp RET       XXX  
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤╭─────────────┬─────────────┬─────────────╮╭─────────────┬─────────────┬─────────────╮├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &kp EXCL      &kp LBRC      &kp LPAR      &kp RPAR      &kp RBRC      &kp FSLH       &kp BSLH      &kp COLON      &kp STAR       XXX           XXX           XXX            &kp FSLH      &kp DEL       &kp LS(TAB)   XXX           XXX           XXX  
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯├─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┤╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -548,13 +618,13 @@ ZMK_LAYER(hyper,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╮                                                                                      ╭─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    XXX           &p7           &p8           &p9           &p0           &p5                                                                                                  &p6           &p1           &p2           &p3           &p4           XXX  
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   XXX           &unfullscr    XXX           &dmenu        &sup_f        &full_magic                                                                                          &vol_u        &copy_cut     &p_desk       &cycle_tabs   &spot_prev    XXX
+   XXX           &unfullscr    XXX           &dmenu        &sup_f        XXX                                                                                                  &vol_u        &copy_cut     &p_desk       &cycle_tabs   XXX           XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   &zoom_in      XXX           &s_yt         &s_ggl        XXX           &o_tab                                                                                               &vol_d        &p_win        &new_win      &shift_desk   &spot_n       &cl_win
+   &zoom_in      XXX           &s_yt         &s_ggl        XXX           &o_tab                                                                                               &vol_d        &h_n          &h_a          &h_i          &h_o          &h_apo
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤╭─────────────┬─────────────┬─────────────╮╭─────────────┬─────────────┬─────────────╮├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   &zoom_out     XXX           &p_yt         &p_ggl        &clip         &c_tab         &lay_magic    &set_lay_ma   XXX            &scs          &tmux_cl      &tmux_p        &paste        &n_win        &n_desk       &yt_p         &lay_magic    &full_magic           
+   &zoom_out     XXX           &p_yt         &p_ggl        &clip         &c_tab         &lay_magic    &set_lay_ma   XXX            &scs          &mouse_place  &tmux_p        &p_win        &n_win        &h_peri       &h_dash       &h_semi       &h_pgup           
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯├─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┤╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   XXX           &paste        &m_clk        &m_clk_s      &copy_cut                    &yt_p         &media_back   &media_frw     XXX           &tmux_opn     XXX                          &p_tmux       &n_tmux       &spot_p       &shift_desk   XXX            
+   &mus_p        &mus_n        &br_d         &kp F24       &br_u                        &yt_p         &media_back   &media_frw     XXX           &tmux_opn     &paste                       &p_tmux       &n_tmux       &h_left       &h_right      &cl_win            
 //╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯              ╰─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────╯              ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
 )
 
